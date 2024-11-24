@@ -37,18 +37,15 @@ public class Anagram {
 		}
 		for (int i = 0; i < str1.length(); i++) {
 			for (int j =0; j < str2.length(); j++) {
-				//System.out.println(i + "," + j); //check!
 				if (str1.charAt(i) == str2.charAt(j)) {
-					//System.out.println( "equeal"); //check!
 					j = str2.length();
 				} 
 				if (j == str2.length() -1) {
-					//System.out.println("i reached nothing in row " + i); //check!
 					return false;
 				}
 			}
 		}
-		return true; //if went out from loop i ==> true
+		return true; 
 	}
 	   
 	// Returns a preprocessed version of the given string: all the letter characters are converted
@@ -59,11 +56,11 @@ public class Anagram {
 		String ans = "";
 		while ( i < str.length()) {
 			char c = (char) (str.charAt(i));
-			if ((c >= 97) && (c <= 122)) { //check if lower case
+			if ((c >= 97) && (c <= 122)) { 
 				ans = ans + c;
 				i++;
 			} else {
-				if ((c >= 65) && (c <= 90)) { //check if upper case and converts
+				if ((c >= 65) && (c <= 90)) { 
 					c = (char) (c+32);
 					ans = ans + c;
 					i++;
@@ -78,7 +75,7 @@ public class Anagram {
 	// Returns a random anagram of the given string. The random anagram consists of the same
 	// characters as the given string, re-arranged in a random order. 
 	public static String randomAnagram(String str) {
-		String randStr = ""; //newanagram
+		String randStr = ""; 
 		String remainStr = str;
 		while (remainStr. length() > 0) {		
 			int rand = (int) (Math.random() * remainStr.length());

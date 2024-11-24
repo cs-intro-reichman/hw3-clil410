@@ -11,10 +11,10 @@ public class LoanCalc {
 		// Gets the loan data
 		double loan = Double.parseDouble(args[0]);
 		double rate = Double.parseDouble(args[1]);
-		rate = (rate / 100) + 1;
 		int n = Integer.parseInt(args[2]);
 		System.out.println("Loan = " + loan + ", interest rate = " + rate + "%, periods = " + n);
-
+		rate = (rate / 100) + 1;
+		
 		// Computes the ending balance of the loan, given a periodical payment
 		double payment = 10000;
 		double endBalance = endBalance(loan, rate, n, payment);
