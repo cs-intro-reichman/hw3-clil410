@@ -1,4 +1,3 @@
-
 /** Functions for checking if a given string is an anagram. */
 public class Anagram {
 	public static void main(String args[]) {
@@ -52,44 +51,14 @@ public class Anagram {
 	// to lower-case, and all the other characters are deleted, except for spaces, which are left
 	// as is. For example, the string "What? No way!" becomes "whatnoway"
 	private static String preProcess(String str) {
-		int i =0;
-		String ans = "";
-		while ( i < str.length()) {
-			char c = (char) (str.charAt(i));
-			if ((c >= 97) && (c <= 122)) { 
-				ans = ans + c;
-				i++;
-			} else {
-				if ((c >= 65) && (c <= 90)) { 
-					c = (char) (c+32);
-					ans = ans + c;
-					i++;
-				} else {
-					i++;
-				}
-			} 
-		}
-	return ans;
+		// Replace the following statement with your code
+		return str;
 	} 
 	   
 	// Returns a random anagram of the given string. The random anagram consists of the same
 	// characters as the given string, re-arranged in a random order. 
 	public static String randomAnagram(String str) {
-		String randStr = ""; 
-		String remainStr = str;
-		while (remainStr. length() > 0) {		
-			int rand = (int) (Math.random() * remainStr.length());
-			randStr += (char) (remainStr.charAt(rand));
-			String newRemain = "";
-			for (int i=0; i < remainStr.length(); i++) {
-				if (i != rand) {
-					newRemain += remainStr.charAt(i);
-				}
-			}
-			remainStr = newRemain;
-		}
-		return randStr;
+		// Replace the following statement with your code
+		return str;
 	}
 }
-
-
