@@ -55,10 +55,14 @@ public class Anagram {
 		String ans = "";
 		while ( i < str.length()) {
 			char c = (char) (str.charAt(i));
+			if (c == 32) {
+				ans = ans + " ";
+			}
 			if ((c >= 97) && (c <= 122)) { 
 				ans = ans + c;
 				i++;
-			} else {
+			} 
+			else {
 				if ((c >= 65) && (c <= 90)) { 
 					c = (char) (c+32);
 					ans = ans + c;
