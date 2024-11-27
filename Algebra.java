@@ -9,13 +9,26 @@ public class Algebra {
 	    System.out.println(plus(2,3));   // 2 + 3
 	    System.out.println(minus(7,2));  // 7 - 2
    		System.out.println(minus(2,7));  // 2 - 7
+		System.out.println(minus(0,-1));
+		System.out.println(minus(-4,-4));
+		System.out.println(minus(-3,1));
  		System.out.println(times(3,4));  // 3 * 4
+		System.out.println(times(-1,-2));
+		System.out.println(times(-1,-4));
+		System.out.println(times(3,-4));
    		System.out.println(plus(2,times(4,2)));  // 2 + 4 * 2
    		System.out.println(pow(5,3));      // 5^3
    		System.out.println(pow(3,5));      // 3^5
+		System.out.println(pow(-2,3));
    		System.out.println(div(12,3));   // 12 / 3    
    		System.out.println(div(5,5));    // 5 / 5  
    		System.out.println(div(25,7));   // 25 / 7
+		System.out.println(div(-2,2));
+		System.out.println(div(-5,2));
+		System.out.println(div(2,-2));  
+		System.out.println(div(5,-2)); 
+		System.out.println(div(11,-2));
+		System.out.println(div(-8,2));
    		System.out.println(mod(25,7));   // 25 % 7
    		System.out.println(mod(120,6));  // 120 % 6    
    		System.out.println(sqrt(36));
@@ -24,10 +37,17 @@ public class Algebra {
 	}  
 
 	// Returns x1 + x2
-	public static int plus(int x1, int x2) {
-		int sum = x1;
-		for (int i=0; i < x2; i++) {
+	public static int plus(int x1, int x2) { 
+		int sum = x1; 
+		if  (x2 > 0) { 
+		for (int i=0; i < x2; i++) { 
 			sum++;
+		}
+		}
+		if (x2 < 0) { 
+		for (int i= x2; i < 0; i++) { 
+			sum--;
+			}
 		}
 		return sum;
 	}
@@ -35,18 +55,34 @@ public class Algebra {
 	// Returns x1 - x2
 	public static int minus(int x1, int x2) {
 		int sum = x1;
-		for (int i=0; i < x2; i++) {
-			sum--;
-		}
+		if  (x2 > 0) { 
+			for (int i = 0; i < x2; i++) {
+				sum--;
+				}
+			}
+		if (x2 < 0) {
+			for (int i = x2; i < 0; i++) {
+				sum++;
+				}
+			}
 		return sum;
 	}
 
 	// Returns x1 * x2
 	public static int times(int x1, int x2) {
-        int multiple =0; // 0
-		for (int i=0; i < x2; i++) { // 
-			multiple =+ plus(multiple, x1); // 
+        int multiple = 0; 
+		if (x2 < 0) {
+			for (int i = x2; i < 0; i++) { 
+				multiple = minus(multiple, x1); 
+				}
+			return multiple;
 		}
+		if (x2 > 0) {
+			for (int i = 0; i < x2; i++) { 
+				multiple = plus(multiple, x1);  
+			}
+			return multiple;
+		}	
 		return multiple;
 	}
 
@@ -63,9 +99,34 @@ public class Algebra {
 	public static int div(int x1, int x2) {
         int count =0; // count the number of times x2 is in x1
 		int num = x2; // 2
-		while (num <= x1) { // <10, 4 
-			count++; // 1
-			num = plus(num, x2); // 2+2+2+2
+		if (x2 > 0 && x1 > 0) {
+			while (num <= x1) { // <10, 4 
+				count++; // 1
+				num = plus(num, x2); // 2+2+2+2
+			}
+		}
+		if (x2 > 0 && x1 < 0) {
+			while (times(num,count) > x1) { //2 , -2
+				count--; // -1 
+			}
+			if (times(num,count) == x1) {
+				return count;
+			}
+			else {
+			return (count + 1); 	
+			}
+		}
+		if (x2 < 0) {
+			while (times(num,count) < x1) { //2 , -2
+				count--; // -1 
+			}
+			if (times(num,count) == x1) {
+				return count;
+			}
+			else {
+				return (count + 1); 
+			}
+			
 		}
 		return count;
 	}

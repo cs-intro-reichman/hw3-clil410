@@ -50,7 +50,7 @@ public class Anagram {
 	// Returns a preprocessed version of the given string: all the letter characters are converted
 	// to lower-case, and all the other characters are deleted, except for spaces, which are left
 	// as is. For example, the string "What? No way!" becomes "whatnoway"
-	private static String preProcess(String str) {
+	public static String preProcess(String str) {
 		int i =0;
 		String ans = "";
 		while ( i < str.length()) {
