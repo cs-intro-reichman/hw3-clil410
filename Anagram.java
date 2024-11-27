@@ -9,7 +9,6 @@ public class Anagram {
 
 		// Tests the preProcess function.
 		System.out.println(preProcess("What? No way!!!"));
-		
 		// Tests the randomAnagram function.
 		System.out.println("silent and " + randomAnagram("silent") + " are anagrams.");
 		System.out.println("abc and " + randomAnagram("abc") + " are anagrams.");
@@ -29,8 +28,8 @@ public class Anagram {
 
 	// Returns true if the two given strings are anagrams, false otherwise.
 	public static boolean isAnagram(String str1, String str2) {
-		str1 = preProcess(str1);
-		str2 = preProcess(str2);
+		str1 = preProcessWithoutSpaces(str1);
+		str2 = preProcessWithoutSpaces(str2);
 		if (str1.length() != str2.length()) {
 			return false;
 		}
@@ -75,6 +74,27 @@ public class Anagram {
 		return ans;
 	} 
 	   
+	public static String preProcessWithoutSpaces(String str) {
+		int i =0;
+		String ans = "";
+		while ( i < str.length()) {
+			char c = (char) (str.charAt(i));
+			if ((c >= 97) && (c <= 122)) { 
+				ans = ans + c;
+				i++;
+			} 
+			else {
+				if ((c >= 65) && (c <= 90)) { 
+					c = (char) (c+32);
+					ans = ans + c;
+					i++;
+				} else {
+					i++;
+				}
+			} 
+		}
+		return ans;
+	} 
 	// Returns a random anagram of the given string. The random anagram consists of the same
 	// characters as the given string, re-arranged in a random order. 
 	public static String randomAnagram(String str) {
