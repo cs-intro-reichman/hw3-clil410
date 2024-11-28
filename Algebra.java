@@ -6,7 +6,7 @@
 public class Algebra {
 	public static void main(String args[]) {
 	     // Tests some of the operations
-	    /* System.out.println(plus(2,3));   // 2 + 3
+	    System.out.println(plus(2,3));   // 2 + 3
 	    System.out.println(minus(7,2));  // 7 - 2
    		System.out.println(minus(2,7));  // 2 - 7
 		System.out.println(minus(0,-1));
@@ -27,13 +27,17 @@ public class Algebra {
 		System.out.println(div(-5,2));
 		System.out.println(div(2,-2));  
 		System.out.println(div(5,-2)); 
-		System.out.println(div(11,-2)); */
-		System.out.println(div(-15,-3));
-   		/*System.out.println(mod(25,7));   // 25 % 7
+		System.out.println(div(11,-2));
+		System.out.println(sqrt(0));
+		System.out.println(sqrt(263169));
+		System.out.println(sqrt(76123));
+		System.out.println(sqrt(1));
+		System.out.println(sqrt(10000));
+   		System.out.println(mod(25,7));   // 25 % 7
    		System.out.println(mod(120,6));  // 120 % 6    
    		System.out.println(sqrt(36));
 		System.out.println(sqrt(263169));
-   		System.out.println(sqrt(76123)); */
+   		System.out.println(sqrt(76123));
 	}  
 
 	// Returns x1 + x2
@@ -160,6 +164,9 @@ public class Algebra {
         int numAnswer = 2; 
 		int check = 0;
 		boolean notSqrt = true;
+		if (x == 0) {
+			return 0;
+		}
 		while (notSqrt) {
 			check = mod(x, numAnswer);
 			if (check == 0) { //if numAnswer is a divider of x
